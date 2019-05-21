@@ -1,18 +1,22 @@
 import { NgModule } from '@angular/core';
-import { MatButtonModule, MatChipsModule, MatFormFieldModule, MatInputModule } from '@angular/material';
+import { MatButtonModule, MatChipsModule, MatFormFieldModule, MatIconModule, MatInputModule, MatSlideToggleModule } from '@angular/material';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { AddTodoComponent } from './add-todo/add-todo.component';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { CounterBadgeComponent } from './counter-badge/counter-badge.component';
+import { AddTodoComponent } from './components/add-todo/add-todo.component';
+import { CounterBadgeComponent } from './components/counter-badge/counter-badge.component';
+import { TodoContainerComponent } from './components/todo-container/todo-container.component';
+import { TodoListComponent } from './components/todo-list/todo-list.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     AddTodoComponent,
-    CounterBadgeComponent
+    CounterBadgeComponent,
+    TodoListComponent,
+    TodoContainerComponent
   ],
   imports: [
     BrowserModule,
@@ -22,6 +26,8 @@ import { CounterBadgeComponent } from './counter-badge/counter-badge.component';
     MatFormFieldModule,
     MatChipsModule,
     MatButtonModule,
+    MatSlideToggleModule,
+    MatIconModule
 
   ],
   providers: [],

@@ -1,2 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~@angular/material/prebuilt-themes/indigo-pink.css";
+
+@import url(https://fonts.googleapis.com/css?family=Cardo:400,700|Oswald);
+
+body {
+    font-family: 'Cardo', serif;
+    color: gray
+   }
+   
+   h1, h2, h3, h4, h5, h6 {
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+}

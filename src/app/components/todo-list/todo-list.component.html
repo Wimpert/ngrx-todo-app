@@ -1,0 +1,1 @@
+<app-todo-container *ngFor="let todo of todoList" [todo]="todo" (todoChanged)="todoChanged.emit($event)"></app-todo-container>

@@ -7,6 +7,10 @@
   <div id="todo-input-container">
     <app-add-todo></app-add-todo>
   </div>
-  <div id="todo-list-container"></div>
-  <div id="archived-todo-list-container"></div>
+  <div id="todo-list-container">
+   <app-todo-list [todoList]="todos" ></app-todo-list>
+  </div>
+  <div id="archived-todo-list-container">
+    <app-todo-list></app-todo-list>
+  </div>
 </div>

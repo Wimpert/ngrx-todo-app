@@ -1,0 +1,13 @@
+:host{
+
+    display: flex;
+    flex-direction: row;
+
+    
+    & > .archive{
+        text-decoration: line-through;
+    }
+
+
+}
+
