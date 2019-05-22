@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-add-todo',
@@ -6,11 +6,14 @@ import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
   styleUrls: ['./add-todo.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class AddTodoComponent implements OnInit {
+export class AddTodoComponent {
 
-  constructor() { }
+  @Output() addTodo: EventEmitter<string> = new EventEmitter<string>();
 
-  ngOnInit() {
+  todoText: string;
+
+  updateTodoText(newText: string) {
+    this.todoText = newText;
   }
 
 }

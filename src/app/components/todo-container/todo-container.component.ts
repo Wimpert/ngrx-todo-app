@@ -17,12 +17,12 @@ export class TodoContainerComponent {
     this.todoChanged.emit({... this.todo, done: event});
   }
 
-  todoTextChanged(event: string): void {
-    this.todoChanged.emit({... this.todo, todoText: event});
-  }
-
   archiveTodo(): void {
     this.todoChanged.emit({... this.todo, archived: true});
+  }
+
+  unArchiveTodo(): void {
+    this.todoChanged.emit({... this.todo, archived: false});
   }
 
 }
