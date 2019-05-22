@@ -1,4 +1,7 @@
 import { Injectable } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { CreateTodo } from 'src/app/actions/todo.actions';
+import { State } from 'src/app/reducers';
 import { Todo } from 'src/app/shared/todo.model';
 import { v4 as uuid } from 'uuid';
 
@@ -7,10 +10,10 @@ import { v4 as uuid } from 'uuid';
 })
 export class TodoService {
 
-  constructor() { }
+  constructor(private store: Store<State>) { }
 
   createTodo(text: string) {
-    console.log('creating todo with text:', text);
+    this.store.dispatch(new CreateTodo({todoText: text}));
   }
 
   updateTodo(todo: Todo) {
