@@ -1,10 +1,12 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { } from '@angular/compiler/src/core';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
 import { Todo } from 'src/app/shared/todo.model';
 
 @Component({
   selector: 'app-todo-container',
   templateUrl: './todo-container.component.html',
-  styleUrls: ['./todo-container.component.scss']
+  styleUrls: ['./todo-container.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class TodoContainerComponent {
 

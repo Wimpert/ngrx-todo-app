@@ -3,4 +3,9 @@
     display: flex;
     justify-content: space-around;
 
+    & > mat-form-field {
+        width: 80%;
+        flex-shrink: 1;
+    }
+
 }

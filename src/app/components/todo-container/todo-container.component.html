@@ -1,7 +1,7 @@
 <span [ngClass]="{archive: todo.archived}">
   {{todo.todoText}}
 </span>
-<mat-slide-toggle (toggleChange)="todoDoneChanged($event)" [checked]="todo.done">Done</mat-slide-toggle>
+<mat-slide-toggle (toggleChange)="todoDoneChanged($event)" [disabled]="todo.archived" [checked]="todo.done">Done</mat-slide-toggle>
 <button mat-icon-button (click)="archiveTodo()" >
   <mat-icon aria-label="Example icon-button with a heart icon">archive</mat-icon>
 </button>

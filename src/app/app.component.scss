@@ -1,8 +1,39 @@
+
+$border: 1px  solid lightgrey;
+
 #app-container{
     display: flex;
     flex-direction: column;
 
+    & > *{
+        display: flex;
+        flex-direction: column;
+        padding: 1em;
+        border: $border;
+        border-bottom: none;
+    }
+
+    & > *:last-child{
+        border-bottom: $border
+    }
+
+
+
     & > div{
         display: flex
+    }
+
+    & > div:first-child, div:nth-child(2){
+        height: 3em;
+        flex-direction: row;
+    }
+
+    &  #counter-container{
+        & > * {
+            border-right: $border
+        }
+         & > *:last-child{
+             border-right: none;
+         }
     }
 }
