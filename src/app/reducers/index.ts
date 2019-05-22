@@ -3,11 +3,11 @@ import { environment } from '../../environments/environment';
 import * as fromTodo from './todo.reducer';
 
 export interface State {
- todo: fromTodo.TodoState;
+ todoState: fromTodo.TodoState;
 }
 
 export const reducers: ActionReducerMap<State> = {
-  todo: fromTodo.reducer
+  todoState: fromTodo.reducer
 };
 
 
