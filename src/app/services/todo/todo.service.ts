@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
-import { Store } from '@ngrx/store';
+import { select, Store } from '@ngrx/store';
+import { Observable } from 'rxjs';
 import { CreateTodo, UpdateTodo } from 'src/app/actions/todo.actions';
-import { State } from 'src/app/reducers';
+import { getNumberOfTodos, TodoState } from 'src/app/reducers/todo.reducer';
 import { Todo } from 'src/app/shared/todo.model';
 import { v4 as uuid } from 'uuid';
 
@@ -10,7 +11,12 @@ import { v4 as uuid } from 'uuid';
 })
 export class TodoService {
 
-  constructor(private store: Store<State>) { }
+  numberOfTodos$: Observable<number>;
+
+  constructor(private store: Store<TodoState>) {
+    console.log(this.store);
+    this.numberOfTodos$ =  this.store.pipe(select(getNumberOfTodos));
+  }
 
   createTodo(text: string) {
     this.store.dispatch(new CreateTodo({todoText: text}));

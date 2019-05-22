@@ -1,5 +1,7 @@
+import { createSelector } from '@ngrx/store';
 import { TodoActions, TodoActionTypes } from '../actions/todo.actions';
 import { Todo } from '../shared/todo.model';
+
 
 
 export interface TodoState {
@@ -25,3 +27,21 @@ export function reducer(state = initialState, action: TodoActions): TodoState {
       return state;
   }
 }
+
+
+export const selectTodos = (state: TodoState) => state.todos;
+
+const getAllTodosAsArray = createSelector(selectTodos, (todos: {[id: string]: Todo}) => {
+  if(todos){
+    return Object.entries(todos)
+  }
+  return [];
+});
+
+export const getNumberOfTodos = createSelector(getAllTodosAsArray, (todos) =>  {
+  console.log('here');
+  return todos.length;
+});
+
+
+// export const openTodos = createSelector(selectTodos, (todos: {[id: string]: Todo}) => Object.entries(todos).filter((todo: Todo) => !todo.archived));

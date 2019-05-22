@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Observable } from 'rxjs';
 import { TodoService } from './services/todo/todo.service';
 import { Todo } from './shared/todo.model';
 
@@ -7,7 +8,7 @@ import { Todo } from './shared/todo.model';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
   title = 'ngrx-todo-app';
 
   todos: Array<Todo> = [
@@ -17,7 +18,13 @@ export class AppComponent {
     {todoText: 'this is my todo text', done: true, archived: true},
   ];
 
+  numberOfTodos$: Observable<number>;
+
   constructor(private readonly todoService: TodoService) {}
+
+  ngOnInit() {
+    this.numberOfTodos$ = this.todoService.numberOfTodos$;
+  }
 
   handleCreateTodo(text: string) {
     this.todoService.createTodo(text);
