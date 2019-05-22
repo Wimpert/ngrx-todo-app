@@ -29,19 +29,26 @@ export function reducer(state = initialState, action: TodoActions): TodoState {
 }
 
 
-export const selectTodos = (state: TodoState) => state.todos;
+export const selectTodos = (state) =>  state.todoState.todos;
 
 const getAllTodosAsArray = createSelector(selectTodos, (todos: {[id: string]: Todo}) => {
-  if(todos){
-    return Object.entries(todos)
+  if ( todos ) {
+    return Object.values(todos);
   }
   return [];
 });
 
 export const getNumberOfTodos = createSelector(getAllTodosAsArray, (todos) =>  {
-  console.log('here');
   return todos.length;
 });
 
+export const getAllUnArchivedTodos = createSelector(getAllTodosAsArray, (todos) =>  todos.filter(todo => !todo.archived));
 
-// export const openTodos = createSelector(selectTodos, (todos: {[id: string]: Todo}) => Object.entries(todos).filter((todo: Todo) => !todo.archived));
+export const getAllArchivedTodos = createSelector(getAllTodosAsArray, (todos) => todos.filter(todo => todo.archived));
+
+export const getNumberOfDoneTodos = createSelector(getAllUnArchivedTodos, (todos) => todos.filter(todo => todo.done).length);
+
+export const getNumberOfArchivedTodos = createSelector(getAllArchivedTodos, (todos) => todos.length);
+
+
+

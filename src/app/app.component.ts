@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { TodoService } from './services/todo/todo.service';
 import { Todo } from './shared/todo.model';
+
 
 @Component({
   selector: 'app-root',
@@ -19,11 +20,19 @@ export class AppComponent implements OnInit {
   ];
 
   numberOfTodos$: Observable<number>;
+  numberOfDoneTodos$: Observable<number>;
+  numberOfArchivedTodos$: Observable<number>;
+  unArchivedTodos$: Observable<Array<Todo>>;
+  archivedTodos$: Observable<Array<Todo>>;
 
   constructor(private readonly todoService: TodoService) {}
 
   ngOnInit() {
     this.numberOfTodos$ = this.todoService.numberOfTodos$;
+    this.numberOfDoneTodos$ = this.todoService.numberOfDoneTodos$;
+    this.numberOfArchivedTodos$ = this.todoService.numberOfArchivedTodos$;
+    this.unArchivedTodos$ = this.todoService.unArchivedTodos$;
+    this.archivedTodos$ = this.todoService.archivedTodos$;
   }
 
   handleCreateTodo(text: string) {

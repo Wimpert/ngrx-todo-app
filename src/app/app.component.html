@@ -1,18 +1,18 @@
 <div id="app-container">
   <div id="counter-container">
     <app-counter-badge [label]="'Open'" [badgeLabel]="numberOfTodos$ | async"></app-counter-badge>
-    <app-counter-badge [label]="'Done'" [badgeLabel]="'5'"></app-counter-badge>
-    <app-counter-badge [label]="'Archived'" [badgeLabel]="'15'"></app-counter-badge>
+    <app-counter-badge [label]="'Done'" [badgeLabel]="numberOfDoneTodos$ | async"></app-counter-badge>
+    <app-counter-badge [label]="'Archived'" [badgeLabel]="numberOfArchivedTodos$ | async"></app-counter-badge>
   </div>
   <div id="todo-input-container">
     <app-add-todo (createTodo)="handleCreateTodo($event)"></app-add-todo>
   </div>
   <div id="todo-list-container">
     <h4>Todos:</h4>
-   <app-todo-list [todoList]="todos" (todoChanged)="handleTodoChanged($event)"></app-todo-list>
+   <app-todo-list [todoList]="unArchivedTodos$ | async" (todoChanged)="handleTodoChanged($event)"></app-todo-list>
   </div>
   <div id="archived-todo-list-container">
     <h4>Archived Todos:</h4>
-    <app-todo-list [todoList]="todos" (todoChanged)="handleTodoChanged($event)"></app-todo-list>
+    <app-todo-list [todoList]="archivedTodos$ | async" (todoChanged)="handleTodoChanged($event)"></app-todo-list>
   </div>
 </div>
