@@ -8,12 +8,14 @@ export class TodoService {
 
   constructor() { }
 
-  addTodo(text: string) {
-    console.log('adding todo with text:', text);
+  createTodo(text: string) {
+    console.log('creating todo with text:', text);
   }
 
   updateTodo(todo: Todo) {
     console.log('updating todo:', todo);
   }
+
+
 
 }
