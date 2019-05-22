@@ -19,8 +19,8 @@ export class AppComponent {
 
   constructor(private readonly todoService: TodoService) {}
 
-  handleAddTodo(text: string) {
-    this.todoService.addTodo(text);
+  handleCreateTodo(text: string) {
+    this.todoService.createTodo(text);
   }
 
   handleTodoChanged(todo: Todo) {
