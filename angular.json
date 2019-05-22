@@ -11,7 +11,8 @@
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
-        }
+        },
+        "collection": "@nrwl/schematics"
       },
       "architect": {
         "build": {
@@ -136,5 +137,8 @@
       }
     }
   },
-  "defaultProject": "ngrx-todo-app"
+  "defaultProject": "ngrx-todo-app",
+  "cli": {
+    "defaultCollection": "@ngrx/schematics"
+  }
 }
