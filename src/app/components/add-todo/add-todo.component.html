@@ -1,5 +1,5 @@
 <mat-form-field class="example-full-width">
   <input matInput placeholder="Add your Todo" id="add-todo" (input)="updateTodoText($event.target.value)" > 
 </mat-form-field>
-<button mat-raised-button color="primary" (click)="addTodo.emit(todoText)" [disabled]="!todoText">Add Todo</button>
+<button mat-raised-button color="primary" (click)="createTodo.emit(todoText)" [disabled]="!todoText">Add Todo</button>
 
