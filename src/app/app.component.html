@@ -1,6 +1,6 @@
 <div id="app-container">
   <div id="counter-container">
-    <app-counter-badge [label]="'Open'" [badgeLabel]="numberOfTodos$ | async"></app-counter-badge>
+    <app-counter-badge [label]="'Open'" [badgeLabel]="numberOfOpenTodos$ | async"></app-counter-badge>
     <app-counter-badge [label]="'Done'" [badgeLabel]="numberOfDoneTodos$ | async"></app-counter-badge>
     <app-counter-badge [label]="'Archived'" [badgeLabel]="numberOfArchivedTodos$ | async"></app-counter-badge>
   </div>

@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
     {todoText: 'this is my todo text', done: true, archived: true},
   ];
 
-  numberOfTodos$: Observable<number>;
+  numberOfOpenTodos$: Observable<number>;
   numberOfDoneTodos$: Observable<number>;
   numberOfArchivedTodos$: Observable<number>;
   unArchivedTodos$: Observable<Array<Todo>>;
@@ -28,7 +28,7 @@ export class AppComponent implements OnInit {
   constructor(private readonly todoService: TodoService) {}
 
   ngOnInit() {
-    this.numberOfTodos$ = this.todoService.numberOfTodos$;
+    this.numberOfOpenTodos$ = this.todoService.numberOfOpenTodos$;
     this.numberOfDoneTodos$ = this.todoService.numberOfDoneTodos$;
     this.numberOfArchivedTodos$ = this.todoService.numberOfArchivedTodos$;
     this.unArchivedTodos$ = this.todoService.unArchivedTodos$;

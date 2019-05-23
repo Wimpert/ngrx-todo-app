@@ -38,8 +38,8 @@ const getAllTodosAsArray = createSelector(selectTodos, (todos: {[id: string]: To
   return [];
 });
 
-export const getNumberOfTodos = createSelector(getAllTodosAsArray, (todos) =>  {
-  return todos.length;
+export const numberOfOpenTodos = createSelector(getAllTodosAsArray, (todos) =>  {
+  return todos.filter(todo => !todo.archived && !todo.done).length;
 });
 
 export const getAllUnArchivedTodos = createSelector(getAllTodosAsArray, (todos) =>  todos.filter(todo => !todo.archived));
