@@ -1,5 +1,6 @@
 import { } from '@angular/compiler/src/core';
 import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+import { MatSlideToggleChange } from '@angular/material';
 import { Todo } from 'src/app/shared/todo.model';
 
 @Component({
@@ -13,8 +14,8 @@ export class TodoContainerComponent {
   @Input() todo: Todo;
   @Output() todoChanged: EventEmitter<Todo> = new EventEmitter<Todo>();
 
-  todoDoneChanged(event: boolean): void {
-    this.todoChanged.emit({... this.todo, done: event});
+  todoDoneChanged(event: MatSlideToggleChange): void {
+    this.todoChanged.emit({... this.todo, done: event.checked});
   }
 
   archiveTodo(): void {

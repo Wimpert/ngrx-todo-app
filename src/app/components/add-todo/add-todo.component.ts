@@ -8,7 +8,7 @@ import { ChangeDetectionStrategy, Component, EventEmitter, Output } from '@angul
 })
 export class AddTodoComponent {
 
-  @Output() addTodo: EventEmitter<string> = new EventEmitter<string>();
+  @Output() createTodo: EventEmitter<string> = new EventEmitter<string>();
 
   todoText: string;
 
