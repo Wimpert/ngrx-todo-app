@@ -38,7 +38,7 @@ export class TodoService {
   }
 
   createTodo(text: string) {
-    this.store.dispatch(new CreateTodo({todoText: text}));
+this.store.dispatch(new CreateTodo({todoText: text}));
   }
 
   updateTodo(todo: Todo) {
@@ -48,5 +48,4 @@ export class TodoService {
     const todo: Todo = { todoText , done: false, archived: false , uuid: uuid()};
     return todo;
   }
-
 }
